@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_chat_function"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_51"
+    android:background="@color/chat_bg"
+    android:layout_alignParentBottom="true">
+
+    <TextView
+        android:id="@+id/chat_input"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:layout_toLeftOf="@+id/ll_chat_function"
+        android:hint="聊点什么吧"
+        android:paddingLeft="@dimen/dp_14"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/sp_14"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:background="@drawable/shape_chat_input_bg"/>
+
+    <LinearLayout
+        android:id="@+id/ll_chat_function"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/chat_join_mic"
+            android:layout_width="@dimen/dp_63"
+            android:layout_height="@dimen/dp_37"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/up_mic"/>
+
+        <ImageView
+            android:id="@+id/chat_mic"
+            android:layout_width="@dimen/dp_37"
+            android:layout_height="@dimen/dp_37"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/sp_20"
+            android:textColor="@color/white"
+            android:src="@drawable/mic_open"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/chat_speaker"
+            android:layout_width="@dimen/dp_37"
+            android:layout_height="@dimen/dp_37"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_11"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/speaker_open"/>
+
+        <ImageView
+            android:id="@+id/chat_volume"
+            android:layout_width="@dimen/dp_37"
+            android:layout_height="@dimen/dp_37"
+            android:layout_marginRight="@dimen/dp_11"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/set_volume"/>
+
+    </LinearLayout>
+</RelativeLayout>

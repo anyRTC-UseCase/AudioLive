@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_bg">
+
+    <include layout="@layout/layout_title"/>
+
+    <FrameLayout
+        android:id="@+id/fl_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_230"
+        android:clipChildren="false"
+        android:layout_marginLeft="@dimen/dp_7"
+        android:layout_marginRight="@dimen/dp_7"
+        android:layout_below="@+id/rl_title">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_info"
+            android:layout_marginTop="@dimen/dp_7"
+            android:layout_width="@dimen/dp_170"
+            android:layout_height="@dimen/dp_200"
+            android:clipChildren="false"/>
+
+        <LinearLayout
+            android:id="@+id/dotlayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_10"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_show_log"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_230"
+        android:layout_marginLeft="@dimen/dp_7"
+        android:layout_marginRight="@dimen/dp_7"
+        android:layout_below="@+id/rl_title"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_music"
+        android:layout_marginTop="@dimen/dp_284"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginLeft="@dimen/dp_7"
+        android:layout_marginRight="@dimen/dp_7"
+        android:background="@drawable/shape_play_music_bg">
+
+        <ImageView
+            android:id="@+id/img_music"
+            android:layout_width="@dimen/dp_42"
+            android:layout_height="@dimen/dp_42"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:src="@drawable/music" />
+
+        <TextView
+            android:id="@+id/music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="点击右边播放按钮 开始播放Music"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toRightOf="@+id/img_music"
+            android:textSize="@dimen/dp_14"/>
+
+        <ImageView
+            android:id="@+id/music_state"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/selector_play_state"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_marginRight="@dimen/dp_13"
+        android:layout_marginBottom="@dimen/dp_55"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_below="@+id/rl_music"/>
+
+    <include layout="@layout/layout_chat" />
+
+</RelativeLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/entry_name_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="输入名字"
+            android:textSize="@dimen/dp_12"
+            android:textColor="@color/entry_name_color"
+            android:layout_marginTop="@dimen/dp_19"
+            android:layout_marginLeft="@dimen/dp_15"/>
+
+        <EditText
+            android:id="@+id/entry_name"
+            android:layout_marginTop="@dimen/dp_21"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/entry_name_tag"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:text="iPhone-167832222"
+            android:textColor="@color/white"
+            android:hint="请输入名字"
+            android:textColorHint="@color/entry_name_color"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/shape_cursor_bg"
+            android:textSize="@dimen/sp_14"
+            android:background="@null"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/entry_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/clear"
+            android:layout_marginTop="@dimen/dp_21"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_below="@+id/entry_name_tag" />
+
+        <View
+            android:id="@+id/announcement_view_line"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/entry_name"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:background="@color/gray_bg"/>
+
+        <TextView
+            android:id="@+id/name_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16"
+            android:layout_marginTop="@dimen/sp_12"
+            android:layout_below="@+id/announcement_view_line"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:textColor="#FF8F8F9A"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/text_ar_statement"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ar_statement"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:layout_marginRight="@dimen/dp_15"/>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFFFF</color>
+    <color name="colorAccent">#FFFFFFFF</color>
+
+    <color name="tab_color">#39A1FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="tab_background_color">#111F2C</color>
+    <color name="title_background_color">#111F2C</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_white">#AAAAAA</color>
+    <color name="gray">#CCCCCC</color>
+    <color name="black_bg">#091621</color>
+
+    <color name="music_bg">#2A3341</color>
+
+    <color name="color_guest_show">#FF202F3C</color>
+    <color name="text_guest_color">#BBBBBB</color>
+
+    <color name="chat_bg">#111F2C</color>
+
+    <color name="gray_bg">#313437</color>
+    <color name="entry_name_color">#8F8F9A</color>
+
+    <color name="text_enable">#40A3FB</color>
+    <color name="text_unenable">#063F71</color>
+
+    <color name="info_start_color">#FF263160</color>
+    <color name="info_center_color">#FF111F2B</color>
+    <color name="info_end_color">#FF11202C</color>
+
+    <color name="et_create_bg">#FF2F3041</color>
+    <color name="et_create_hint">#7A7A82</color>
+
+    <color name="function_color">#FF08090A</color>
+
+    <color name="seek_progress_unfocus_color">#FFB4B4B4</color>
+    <color name="seek_progress_focus_color">#FF44A5FB</color>
+
+    <color name="input_color">#FFF7F7F7</color>
+    <color name="input_confirm_select">#FF40A3FB</color>
+    <color name="input_confirm_unselect">#FFDDDDDD</color>
+
+    <color name="msg_text_system">#FFEC99</color>
+    <color name="msg_join_mic">#FF971C</color>
+    <color name="msg_text_normal_id">#7CE3FF</color>
+    <color name="msg_text_normal_msg">#FFFFFF</color>
+    <color name="msg_text_member_change">#FF971C</color>
+    <color name="msg_text_gift">#FC4070</color>
+    <color name="msg_text_give_gift">#1DC158</color>
+    <color name="msg_text_attr">#C689FF</color>
+
+    <color name="apply_color">#333333</color>
+    <color name="apply_text_color">#606060</color>
+    <color name="apply_cancel_color">#B2666666</color>
+
+</resources>
