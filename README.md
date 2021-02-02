@@ -84,7 +84,7 @@ Github代码下载慢，请移步至码云下载。
 
 - [Android运行指南](AudioLive-Android/README.md)
 
-- [iOS运行指南](AudioLive-IOS/README.md)
+- [iOS运行指南](AudioLive-iOS/README.md)
 
   
 
