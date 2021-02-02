@@ -82,9 +82,9 @@ Github代码下载慢，请移步至码云下载。
 
 参考以下文档在对应的平台编译及运行示例项目：
 
-- [Android运行指南](AudioLive-Android/README)
+- [Android运行指南](AudioLive-Android/README.md)
 
-- [iOS运行指南]()
+- [iOS运行指南](AudioLive-IOS/README.md)
 
   
 
