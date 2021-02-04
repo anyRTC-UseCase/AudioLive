@@ -48,7 +48,6 @@ public final class ChatRoomManager implements MessageManager {
         mRtcManager.setListener(mRtcListener);
         mRtmManager = RtmManager.getInstance(context);
         mRtmManager.setListener(mRtmListener);
-        //new Thread(() -> {}).start();
         serverManager.setUpdateUserListener(joinUserBean -> {
             List<JoinUserBean.DataBean.UsersBean> userBeans =joinUserBean.getData().getList();
             for (int i = 0; i < userBeans.size(); i++) {
@@ -219,22 +218,6 @@ public final class ChatRoomManager implements MessageManager {
         }
 
         @Override
-        public void onInitMembers(List<RtmChannelMember> members) {
-            if (mListener != null) {
-                for (int i = 0; i <members.size() ; i++) {
-                    mListener.onMemberListUpdated(members.get(i).getUserId());
-                }
-            }
-        }
-
-        @Override
-        public void onMemberCount(int count) {
-            if (mListener!=null){
-                mListener.onMemberCountUpdate(count);
-            }
-        }
-
-        @Override
         public void onMemberJoined(String userId) {
             if (mListener != null){
                 Log.i(TAG, "onMemberJoined: --->userId ="+userId);
@@ -256,11 +239,7 @@ public final class ChatRoomManager implements MessageManager {
         public void onMemberLeft(String userId) {
             //退出处理
             if (mListener != null){
-                //if (mChannelData.isAnchor(userId)){
-                    //mListener.onMessageAdd(new MessageListBean(MessageListBean.MSG_JOIN_LEFT_ROOM,userId,"主播离开了"));
-               // }else {
-                    mListener.onMessageAdd(new MessageListBean(MessageListBean.MSG_JOIN_LEFT_ROOM,mChannelData.getName(userId)+" 离开了房间"));
-               // }
+                mListener.onMessageAdd(new MessageListBean(MessageListBean.MSG_JOIN_LEFT_ROOM,mChannelData.getName(userId)+" 离开了房间"));
                 mListener.onMemberLeft(userId);
             }
         }

@@ -142,8 +142,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private ApplyDialog applyDialog;
     private HashMap<String,InfoBean> infoMap;
     private List<LogBean> mLogList;
-    //申请上麦人员
-    //private List<String> applyUsersMap;
+    //申请上麦人
     private HashMap<String,ApplyDialog> applyUsersMap;
 
     @Override
@@ -221,6 +220,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * 游客加入房间，开始拉流，并且播放
+     * @param mute 是否静音，false：不静音，true：静音
+     */
     private void initPlayer(boolean mute){
         mediaPlayerKit =new ARMediaPlayerKit();
         mediaPlayerKit.registerPlayerObserver(mediaPlayerObserver);
@@ -235,22 +238,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         mAnchorId =mUserId;
         rlMusic.setVisibility(View.VISIBLE);
         rvGuestLog.setVisibility(View.GONE);
-        String rtcToken = "";
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            rtcToken = Optional.ofNullable(serverManager)
-                    .map(ARServerManager::getAddBean)
-                    .map(AddBean::getData)
-                    .map(AddBean.DataBean::getRtcToken)
-                    .orElse("");
-        }
-        Log.i(TAG, "showAnchor: rtcToken ="+rtcToken);
-        //mChatRoomManager.joinRtcChannel(rtcToken,roomId);
         mChannelData.setAnchorId(mAnchorId);
         mJoinMic.setVisibility(View.GONE);
         mFrameLayout.setVisibility(View.VISIBLE);
         volumeDialog =new VolumeDialog(this,mChatRoomManager);
         Log.i(TAG, "showAnchor: pushUrl ="+pushUrl);
-        mChatRoomManager.getRtcManager().pushStream(pushUrl);
+        mChatRoomManager.getRtcManager().pushStream(pushUrl); //主播推流
     }
 
     private void showGuest(){
@@ -376,6 +369,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         return super.onKeyDown(keyCode, event);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -578,6 +572,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //更新游客音乐状态
     private void updateGuestMusic(){
         if (!isAnchor){
             if (getRoom()!=null){
@@ -597,6 +592,11 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * SDK 与 AR RTM 系统的连接状态发生改变回调。
+     * @param state 新连接状态。
+     * @param reason 连接状态改变原因。
+     */
     @Override
     public void onRtmConnectStateChange(int state, int reason) {
         runOnUiThread(()->{
@@ -673,6 +673,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * 加入成功的回调
+     * @param uid 用户UID
+     */
     @Override
     public void onJoinChannelSuccess(String uid) {
         runOnUiThread(()->{
@@ -780,6 +784,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     public void onAudioVolumeIndication(String userId, int volume) {
         runOnUiThread(()->{
             if (infoMap.containsKey(userId)){
+                Log.i(TAG, "onAudioVolumeIndication: userId ="+userId+",volume ="+volume);
                 infoMap.get(userId).setVolume(volume);
                 infoAdapter.setInfoMap(infoMap,userId);
                 infoAdapter.notifyDataSetChanged();
@@ -787,7 +792,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    //rtcToken 过期
+    /**
+     * rtcToken 过期
+     */
     @Override
     public void onRequestToken() {
       runOnUiThread(()->{
@@ -870,7 +877,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         runOnUiThread(()->{
             applyUsersMap.remove(userId);
             if (applyDialog.isShowing()){
-                //applyDialog.timerCancel();
                 applyDialog.dismiss();
             }
             autoTipDialog =new AutoTipDialog(this,R.drawable.red_tip,userId+"取消上麦");
@@ -898,7 +904,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
      * 同意上麦，返回游客
      * @param userId 主播Id
      */
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onAcceptLineUpdated(String userId) {
@@ -938,6 +943,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * 主播离开
+     * @param userId 主播ID
+     */
     @Override
     public void onAnchorExit(String userId) {
         runOnUiThread(()->{
@@ -947,6 +956,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * 返回游客：更新音乐状态
+     * @param isPlay 是否在播放
+     * @param name 音乐名称
+     * @param singer 音乐歌手
+     */
     @Override
     public void onMusicUpdated(boolean isPlay,String name,String singer) {
         runOnUiThread(()->{
@@ -967,6 +982,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * 成员加入频道
+     * @param userId ：成员ID
+     */
     @Override
     public void onMemberJoined(String userId) {
         runOnUiThread(()->{
@@ -981,17 +1000,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    public void onMemberCountUpdate(int count) {
-        runOnUiThread(()->{
-        });
-    }
-
-    @Override
-    public void onMemberListUpdated(String userId) {
-
-    }
-
+    /**
+     * 添加消息
+     * @param messageListBean 消息对象
+     */
     @Override
     public void onMessageAdd(MessageListBean messageListBean) {
         runOnUiThread(()->{
@@ -999,6 +1011,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     *  用户离开频道
+     * @param userId 用户ID
+     */
     @Override
     public void onMemberLeft(String userId) {
         runOnUiThread(()->{
@@ -1012,7 +1028,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private Handler handler =new Handler(){
+    private final Handler handler =new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -1060,13 +1076,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     private void showTokenPastDueExit(){
-        /*MessageDialog.show(ChatActivity.this, "提示", "体验时长已到，点击确定退出房间", "确定")
-                .setOnOkButtonClickListener((baseDialog, v) -> {
-                    baseDialog.doDismiss();
-                    finish();
-                    return true;
-                });*/
-
         MessageDialog.build(this)
                 .setTitle("提示")
                 .setMessage("体验时长已到，点击确定退出房间")
@@ -1081,12 +1090,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showGuestExit(String msg){
-        /*MessageDialog.show(ChatActivity.this, "提示", msg, "确定")
-                .setOnOkButtonClickListener((baseDialog, v) -> {
-                    baseDialog.doDismiss();
-                    finish();
-                    return true;
-                });*/
         MessageDialog.build(this)
                 .setTitle("提示")
                 .setMessage(msg)

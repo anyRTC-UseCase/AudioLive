@@ -34,10 +34,6 @@ public interface ChatRoomEventListener {
 
     void onMemberJoined(String userId);
 
-    void onMemberCountUpdate(int count);
-
-    void onMemberListUpdated(String userId);
-
     void onUserLineChanged(String userId, Boolean isLine);
 
     void onMessageAdd(MessageListBean messageListBean);

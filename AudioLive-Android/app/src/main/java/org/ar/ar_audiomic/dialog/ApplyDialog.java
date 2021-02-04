@@ -83,7 +83,7 @@ public class ApplyDialog extends Dialog implements View.OnClickListener {
         timer.schedule(timerTask, time, 1000);
     }
 
-    private Handler handler =new Handler(){
+    private final Handler handler =new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -106,12 +106,6 @@ public class ApplyDialog extends Dialog implements View.OnClickListener {
             params.width = WindowManager.LayoutParams.MATCH_PARENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
-        }
-    }
-
-    public void timerCancel(){
-        if (timer!=null){
-            timer.cancel();
         }
     }
 

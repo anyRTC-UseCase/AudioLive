@@ -26,7 +26,7 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled false  // 开启代码混淆
+            minifyEnabled false  // 代码混淆
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {

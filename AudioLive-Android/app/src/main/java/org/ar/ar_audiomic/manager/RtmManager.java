@@ -35,10 +35,6 @@ public final class RtmManager {
 
         void onRtmConnectStateChange(int state,int reason);
 
-        void onInitMembers(List<RtmChannelMember> members);
-
-        void onMemberCount(int count);
-
         void onMemberJoined(String userId);
 
         void onMemberLeft(String userId);
@@ -130,7 +126,6 @@ public final class RtmManager {
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "rtm join success");
                         mRtmChannel = rtmChannel;
-                        getMembers();
                     }
 
                     @Override
@@ -144,37 +139,6 @@ public final class RtmManager {
                 ex.printStackTrace();
             }
         }
-    }
-
-    public void getMembers() {
-        if (mRtmChannel != null) {
-            mRtmChannel.getMembers(new ResultCallback<List<RtmChannelMember>>() {
-                @Override
-                public void onSuccess(List<RtmChannelMember> rtmChannelMembers) {
-                    if (mListener != null)
-                        mListener.onInitMembers(rtmChannelMembers);
-                }
-
-                @Override
-                public void onFailure(ErrorInfo errorInfo) {
-
-                }
-            });
-        }
-    }
-
-
-    public RtmClient getRtmClient() {
-        return mRtmClient;
-    }
-
-
-    private ChannelAttributeOptions options() {
-        return new ChannelAttributeOptions(true);
-    }
-
-    public RtmChannel getRtmChannel() {
-        return mRtmChannel;
     }
 
     public void sendChannelMessage(final String content, final ResultCallback<Void> callback) {
@@ -265,10 +229,6 @@ public final class RtmManager {
     private RtmChannelListener mChannelListener =new RtmChannelListener() {
         @Override
         public void onMemberCountUpdated(int var1) {
-            //getMembers();
-            if (mListener !=null){
-                mListener.onMemberCount(var1);
-            }
        }
 
         @Override

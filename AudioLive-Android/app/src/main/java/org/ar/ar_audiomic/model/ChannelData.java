@@ -1,14 +1,10 @@
 package org.ar.ar_audiomic.model;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
-import org.ar.ar_audiomic.manager.ChatRoomManager;
 import org.ar.ar_audiomic.util.Constants;
 import org.ar.ar_audiomic.util.SpUtil;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
