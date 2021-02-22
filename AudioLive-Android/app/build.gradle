@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.kongzue.dialog_v3x:dialog:3.2.1'
     implementation 'com.yanzhenjie:permission:2.0.3'
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     //rtm
     implementation 'org.ar:rtm:1.0.1.7'
     //rtc

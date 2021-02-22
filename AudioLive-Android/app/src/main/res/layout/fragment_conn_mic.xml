@@ -24,6 +24,7 @@
         android:id="@+id/mic_swipe_sr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black_bg"
         android:layout_below="@+id/rl_title_mic">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -31,8 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:background="@color/black_bg"
-            android:padding="@dimen/dp_8"/>
+            android:padding="@dimen/dp_8" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -46,5 +46,16 @@
         android:layout_marginBottom="@dimen/dp_53"
         android:src="@drawable/creat_audio"/>
 
+    <Button
+        android:id="@+id/not_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂无直播间"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/sp_15"
+        android:textColor="@color/null_text_color"
+        android:drawableTop="@drawable/null_room"
+        android:drawablePadding="@dimen/dp_10"
+        android:background="@null"/>
 
 </RelativeLayout>

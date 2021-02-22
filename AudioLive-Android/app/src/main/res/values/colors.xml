@@ -55,4 +55,7 @@
     <color name="apply_text_color">#606060</color>
     <color name="apply_cancel_color">#B2666666</color>
 
+    <color name="null_text_color">#9FA3B6</color>
+
+    <color name="launch_color">#5247F9</color>
 </resources>

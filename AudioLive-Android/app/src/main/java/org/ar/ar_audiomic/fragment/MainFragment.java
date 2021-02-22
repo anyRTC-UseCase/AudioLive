@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
+    private Button notRoom;
     private RoomListAdapter roomListAdapter;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
     private ImageView imgCreate;
@@ -86,6 +88,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         serverManager =ARServerManager.getInstance();
         swipeRefreshLayout =view.findViewById(R.id.mic_swipe_sr);
         recyclerView =view.findViewById(R.id.mic_recyclerview);
+        notRoom =view.findViewById(R.id.not_room);
         staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         roomListAdapter =new RoomListAdapter();
@@ -186,6 +189,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         }
         Collections.reverse(roomBeans);
         roomListAdapter.setNewInstance(roomBeans);
+        if (roomListAdapter.getItemCount()==0){
+            notRoom.setVisibility(View.VISIBLE);
+        }else {
+            notRoom.setVisibility(View.GONE);
+        }
     }
 
     @Override

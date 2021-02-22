@@ -108,7 +108,6 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private static final int MYSELF_LEAVE_TIP=3;
     private static final int GUEST_ABNORMAL_COUNT=4;
 
-
     private static final int MUSIC_STATE_PLAY=1;
     private static final int MUSIC_STATE_PAUSE=2;
 
