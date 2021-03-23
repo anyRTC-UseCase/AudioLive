@@ -2,9 +2,9 @@
 
 AudioLive 是anyRTC 所做的语音连麦的示例项目，演示了如何通过anyRTC云服务，并配合anyRTC RTC SDK、anyRTC RTM SDK、anyRTC本地推流插件、anyRTC播放插件，快速实现语音连麦的场景。
 
-- 语音连麦
+- 实时语音连麦
 - 本地音视频合流转推CDN
-- 支持最大50方连麦者同时通信。
+- 服务器合流转推CDN
 
 ## 代码下载
 
