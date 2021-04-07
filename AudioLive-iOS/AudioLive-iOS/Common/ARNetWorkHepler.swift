@@ -9,6 +9,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+//内网
+//private let requestUrl = "http://192.168.199.140:12680/arapi/arlive/v1/user/"
+//pro
+//private let requestUrl = "https://pro.arlive.agrtc.cn/arapi/arlive/v1/user/"
+//正式
 private let requestUrl = "https://arlive.agrtc.cn/arapi/arlive/v1/user/"
 
 class ARNetWorkHepler: NSObject {

@@ -51,11 +51,12 @@ class ARMineViewController: UITableViewController {
             // Fallback on earlier versions
             self.automaticallyAdjustsScrollViewInsets = false
         }
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(hexString: "#121F2B")), for: .default)
         self.view.backgroundColor = UIColor(hexString: "#0A1621")
         tableView.separatorColor = UIColor(hexString: "#313437")
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshUserInfo), name: UIResponder.audioLiveNotificationModifySucess, object: nil)
-
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -64,12 +65,12 @@ class ARMineViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @objc func refreshUserInfo() {

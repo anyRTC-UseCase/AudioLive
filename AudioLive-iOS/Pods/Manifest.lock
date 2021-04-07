@@ -1,3 +1,42 @@
-PODFILE CHECKSUM: a4de87dd09f2e10c30e76b113c0fba0a472e1361
+PODS:
+  - Alamofire (4.9.1)
+  - Bugly (2.5.71)
+  - MJRefresh (3.5.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SnapKit (4.2.0)
+  - SwiftyJSON (4.3.0)
+  - XHToast (1.4.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Bugly
+  - MJRefresh
+  - SDWebImage (~> 3.7.3)
+  - SnapKit
+  - SwiftyJSON (< 5.0.0)
+  - XHToast (~> 1.4.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Bugly
+    - MJRefresh
+    - SDWebImage
+    - SnapKit
+    - SwiftyJSON
+    - XHToast
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  XHToast: 3b354766d56d9df8fef8e64387bbd25c90d71a86
+
+PODFILE CHECKSUM: a21886318ee606b399cd880231551dc01824be7f
 
 COCOAPODS: 1.9.3
