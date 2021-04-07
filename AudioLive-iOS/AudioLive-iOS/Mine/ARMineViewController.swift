@@ -101,6 +101,10 @@ class ARMineViewController: UITableViewController {
         if indexPath.row == 0 {
             cell?.detailTextLabel?.text = UserDefaults.string(forKey: .userName)
         }
+        
+        let checkmark  = UIImageView(frame:CGRect(x:0, y:0, width: 20, height:20));
+        checkmark.image = UIImage(named: "icon_arrow.png")
+        cell?.accessoryView = checkmark
         return cell!
     }
     

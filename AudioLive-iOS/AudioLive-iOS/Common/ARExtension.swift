@@ -252,7 +252,7 @@ extension NSObject: CAAnimationDelegate {
     @objc func removeLoadingViewDelay(text: String?) {
         if loadingLabel != nil {
             loadingLabel?.text = text
-            self.perform(#selector(removeLoadingView), with: nil, afterDelay: 2.0);
+            self.perform(#selector(removeLoadingView), with: nil, afterDelay: 1.0);
         }
     }
     

@@ -133,7 +133,7 @@ class ARAudioViewController: ARBaseViewController {
     func initializeEngine() {
         // init ARtcEngineKit
         rtcKit = ARtcEngineKit.sharedEngine(withAppId: UserDefaults.string(forKey: .appid)!, delegate: self)
-        rtcKit.setChannelProfile(.profileiveBroadcasting)
+        rtcKit.setChannelProfile(.liveBroadcasting)
         if infoModel!.isBroadcaster {
             rtcKit.setClientRole(.broadcaster)
         }
@@ -281,8 +281,7 @@ class ARAudioViewController: ARBaseViewController {
         case 55:
             //音频开关
             sender.isSelected = !sender.isSelected
-            //rtcKit.enableLocalAudio(!sender.isSelected)
-            rtcKit.muteLocalAudioStream(sender.isSelected)
+            rtcKit.enableLocalAudio(!sender.isSelected)
             break
         default:
             break
@@ -304,7 +303,7 @@ class ARAudioViewController: ARBaseViewController {
             flowLayout.scrollDirection = .vertical
             flowLayout.itemSize = CGSize.init(width: ARScreenWidth - 2 * spacing, height: 40)
             audioCollectionView.isPagingEnabled = false
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            flowLayout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: 0, right: 0)
         } else {
             flowLayout.scrollDirection = .horizontal
             audioCollectionView.isPagingEnabled = true
@@ -641,16 +640,19 @@ extension ARAudioViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == effectCollectionView {
+            //音效
             let collectionViewCell: ARChatSoundCell! = (collectionView.dequeueReusableCell(withReuseIdentifier: "ARChat_SoundCellID", for: indexPath) as! ARChatSoundCell)
             collectionViewCell.updateSoundCell(soundName: effectItem[indexPath.row].name)
             collectionViewCell.backgroundColor = UIColor.init(hexString:effectItem[indexPath.row].color!)
             return collectionViewCell
         } else {
             if flowLayout.scrollDirection == .horizontal {
+                //上麦
                 let cell: ARAudioCollectionViewCell! = collectionView.dequeueReusableCell(withReuseIdentifier: "AudioLive_AudioCellID", for: indexPath) as? ARAudioCollectionViewCell
                 cell.micModel = listArr[indexPath.row]
                 return cell
             } else {
+                //mediaPlayer日志 -- 游客
                 let cell: ARLogCollectionViewCell! = collectionView.dequeueReusableCell(withReuseIdentifier: "AudioLive_LogCellID", for: indexPath) as? ARLogCollectionViewCell
                 cell.playerModel = logArr[indexPath.row]
                 return cell

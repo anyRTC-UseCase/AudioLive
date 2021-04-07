@@ -85,6 +85,7 @@ class ARMainViewController: UICollectionViewController {
         super.viewDidLoad()
         (UserDefaults.string(forKey: .uid) != nil) ? login() : registered()
         createPlaceholder()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(hexString: "#121F2B")), for: .default)
         
         flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.sectionInset = UIEdgeInsets(top: 7, left: 7, bottom: 0, right: 7)
@@ -154,7 +155,7 @@ class ARMainViewController: UICollectionViewController {
                 collectionView.reloadData()
                 collectionView.mj_header?.endRefreshing()
                 collectionView.mj_footer?.endRefreshing()
-                removeLoadingView()
+                removeLoadingViewDelay(text: "")
             }) { (error) in
                 self.collectionView.mj_header?.endRefreshing()
                 self.collectionView.mj_footer?.endRefreshing()

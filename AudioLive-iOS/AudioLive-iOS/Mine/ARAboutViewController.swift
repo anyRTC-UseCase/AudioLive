@@ -71,6 +71,10 @@ class ARAboutViewController: UITableViewController {
         cell?.detailTextLabel?.text = menus[indexPath.row].detail
         cell?.detailTextLabel?.font = UIFont(name: "PingFang SC", size: 14)
         cell?.detailTextLabel?.textColor = UIColor(hexString: "#CCCCCC")
+        
+        let checkmark  = UIImageView(frame:CGRect(x:0, y:0, width: 20, height:20))
+        checkmark.image = UIImage(named: "icon_arrow.png")
+        cell?.accessoryView = checkmark
         return cell!
     }
     
