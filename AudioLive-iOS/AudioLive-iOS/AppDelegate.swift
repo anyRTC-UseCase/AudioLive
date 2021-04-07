@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Bugly
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

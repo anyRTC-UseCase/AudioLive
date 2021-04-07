@@ -3,9 +3,9 @@ use_frameworks!
 
 target 'AudioLive-iOS' do
     #anyRTC 音视频库
-    #pod 'ARtcKit_iOS', '~> 4.1.4.1'
+    pod 'ARtcKit_iOS', '~> 4.1.4.1'
     #anyRTC 实时消息库
-    #pod 'ARtmKit_iOS', '~> 1.0.1.4'
+    pod 'ARtmKit_iOS', '~> 1.0.1.4'
     
     pod 'SnapKit'
     pod 'Alamofire'
@@ -13,5 +13,4 @@ target 'AudioLive-iOS' do
     pod 'MJRefresh'
     pod 'SDWebImage', '~> 3.7.3'
     pod 'XHToast', '~> 1.4.0'
-    pod 'Bugly'
 end

@@ -38,10 +38,6 @@
 		636E763825D12F3400581457 /* AudioLive_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E763725D12F3400581457 /* AudioLive_iOSUITests.swift */; };
 		636E76E525D12FCD00581457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636E76E425D12FCD00581457 /* Main.storyboard */; };
 		6392EF8125FE301700791679 /* ARStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392EF8025FE301700791679 /* ARStatementViewController.swift */; };
-		63A73D6C2601EA5C00BF6B5A /* ARtmKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A73D6A2601EA5100BF6B5A /* ARtmKit.framework */; };
-		63A73D6D2601EA5C00BF6B5A /* ARtmKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63A73D6A2601EA5100BF6B5A /* ARtmKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		63B35D5E260C37370059019C /* ARtcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B35D5C260C37320059019C /* ARtcKit.framework */; };
-		63B35D5F260C37370059019C /* ARtcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B35D5C260C37320059019C /* ARtcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63D294C725F4C2AB009609A9 /* ARModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D294C625F4C2AB009609A9 /* ARModifyViewController.swift */; };
 		63D294CC25F4C3FC009609A9 /* ARAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D294CB25F4C3FC009609A9 /* ARAboutViewController.swift */; };
 		63DCE86D25E3B91800F57CE1 /* ARPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DCE86C25E3B91800F57CE1 /* ARPlaceholderView.swift */; };
@@ -71,8 +67,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				63A73D6D2601EA5C00BF6B5A /* ARtmKit.framework in Embed Frameworks */,
-				63B35D5F260C37370059019C /* ARtcKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,8 +113,6 @@
 		636E763925D12F3400581457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		636E76E425D12FCD00581457 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6392EF8025FE301700791679 /* ARStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARStatementViewController.swift; sourceTree = "<group>"; };
-		63A73D6A2601EA5100BF6B5A /* ARtmKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ARtmKit.framework; sourceTree = "<group>"; };
-		63B35D5C260C37320059019C /* ARtcKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ARtcKit.framework; sourceTree = "<group>"; };
 		63D294C625F4C2AB009609A9 /* ARModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModifyViewController.swift; sourceTree = "<group>"; };
 		63D294CB25F4C3FC009609A9 /* ARAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAboutViewController.swift; sourceTree = "<group>"; };
 		63DCE86C25E3B91800F57CE1 /* ARPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPlaceholderView.swift; sourceTree = "<group>"; };
@@ -134,8 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63A73D6C2601EA5C00BF6B5A /* ARtmKit.framework in Frameworks */,
-				63B35D5E260C37370059019C /* ARtcKit.framework in Frameworks */,
 				39FD2721B5A655D9373AF756 /* Pods_AudioLive_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,8 +219,6 @@
 		636E761425D12F3300581457 /* AudioLive-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				63B35D5C260C37320059019C /* ARtcKit.framework */,
-				63A73D6A2601EA5100BF6B5A /* ARtmKit.framework */,
 				63D294C125F4C225009609A9 /* Audio */,
 				63D294C225F4C232009609A9 /* Mine */,
 				632AD54725EE4593002A4558 /* Common */,
@@ -309,7 +297,6 @@
 				636E760E25D12F3300581457 /* Sources */,
 				636E760F25D12F3300581457 /* Frameworks */,
 				636E761025D12F3300581457 /* Resources */,
-				D07B3DDFBB4C220E9C0C6257 /* [CP] Embed Pods Frameworks */,
 				6392EFAA25FE4A9800791679 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -457,23 +444,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D07B3DDFBB4C220E9C0C6257 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AudioLive-iOS/Pods-AudioLive-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AudioLive-iOS/Pods-AudioLive-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioLive-iOS/Pods-AudioLive-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
