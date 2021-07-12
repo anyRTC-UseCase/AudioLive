@@ -54,7 +54,6 @@ class ARVolumeViewController: UIViewController,UIGestureRecognizerDelegate{
     
     func saveVolume() {
         //保存设置
-
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {

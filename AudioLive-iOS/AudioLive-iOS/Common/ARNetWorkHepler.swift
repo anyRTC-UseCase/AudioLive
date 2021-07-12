@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 private let requestUrl = "https://arlive.agrtc.cn/arapi/arlive/v1/user/"
+//private let requestUrl = "192.168.1.115:12680/arapi/arlive/v1/user/"
 
 class ARNetWorkHepler: NSObject {
     class func getResponseData(_ url: String, parameters: [String: AnyObject]? = nil, headers: Bool, success:@escaping(_ result: JSON)-> Void, error:@escaping (_ error: NSError)->Void) {

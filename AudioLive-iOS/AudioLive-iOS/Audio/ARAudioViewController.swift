@@ -39,8 +39,8 @@ class ARAudioViewController: ARBaseViewController {
     
     private var micStatus: ARMicStatus = .normal
     
-    private var streamKit: ARStreamingKit?
-    private var mediaPlayer: ARMediaPlayer?
+    fileprivate var streamKit: ARStreamingKit?
+    fileprivate var mediaPlayer: ARMediaPlayer?
     
     var infoModel: ARRoomInfoModel?
     private var listArr = [ARAudioRoomMicModel]()
@@ -111,12 +111,12 @@ class ARAudioViewController: ARBaseViewController {
         musicLabel.text = infoModel?.music?.musicName
         
         if infoModel!.isBroadcaster {
-            //房主
+            // broadcaster
             updateCollectionViewDirection(isLog: false)
             bottomStackView.insertArrangedSubview(audioButton, at: 0)
             joinChannel()
         } else {
-            //观众
+            // audience
             listButton.isHidden = true
             micButton.isHidden = false
             effectButton.isHidden = true
@@ -159,7 +159,7 @@ class ARAudioViewController: ARBaseViewController {
     
     //------------ RTC实时互动 ------------------
     func joinChannel() {
-        //加入频道
+        // 加入频道
         let uid = UserDefaults.string(forKey: .uid)
         rtcKit.joinChannel(byToken: infoModel?.rtcToken, channelId: (infoModel?.roomId)!, uid: uid) { [weak self](channel, uid, elapsed) in
             guard let weakself = self else {return}
@@ -319,7 +319,7 @@ class ARAudioViewController: ARBaseViewController {
                 let dic: NSDictionary! = ["cmd": "exit", "userName": UserDefaults.string(forKey: .userName) as Any]
                 sendChannelMessage(text: getJSONStringFromDictionary(dictionary: dic))
                 
-                self.destroyRoom()
+                destroyRoom()
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -331,6 +331,11 @@ class ARAudioViewController: ARBaseViewController {
     }
     
     func destroyRoom() {
+        let topVc = topViewController()
+        if !(topVc is ARAudioViewController) {
+            topVc.dismiss(animated: false, completion: nil)
+        }
+        
         if infoModel!.isBroadcaster {
             if infoModel?.rType == 2 {
                 streamKit?.destroy()
@@ -378,9 +383,10 @@ class ARAudioViewController: ARBaseViewController {
         }
     }
     
-    func tokenExpire() {
-        destroyRoom()
+    @objc func tokenExpire() {
+        
         UIAlertController.showAlert(in: self, withTitle: "提示", message: "体验时间已到", cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: ["确定"]) { [unowned self](alertVc, action, index) in
+            destroyRoom()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
@@ -617,7 +623,7 @@ extension ARAudioViewController: ARtmDelegate,ARtmChannelDelegate {
             logVC?.log(logModel: ARLogModel(userName: dic.object(forKey: "userName") as? String, uid: member.uid, status: .exit))
             if member.uid == infoModel!.ower?.uid {
                 UIAlertController.showAlert(in: self, withTitle: "提示", message: "主播已离开，房间不存在", cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: ["确定"]) { [unowned self](alertVc, action, index) in
-                    self.destroyRoom()
+                    destroyRoom()
                     self.navigationController?.popViewController(animated: true)
                 }
             }

@@ -19,9 +19,7 @@
 		631AE9FC25F76016008C500F /* qihong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F425F76016008C500F /* qihong.wav */; };
 		631AE9FD25F76016008C500F /* wodema.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F525F76016008C500F /* wodema.wav */; };
 		631AE9FE25F76016008C500F /* wuya.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F625F76016008C500F /* wuya.wav */; };
-		631AE9FF25F76016008C500F /* 最美的光.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F725F76016008C500F /* 最美的光.mp3 */; };
 		631AEA0025F76016008C500F /* chipmunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F825F76016008C500F /* chipmunk.wav */; };
-		631AEA0125F76016008C500F /* 无名之辈.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 631AE9F925F76016008C500F /* 无名之辈.m4a */; };
 		632AD52B25ED23D6002A4558 /* ARCreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632AD52A25ED23D6002A4558 /* ARCreateRoomViewController.swift */; };
 		632AD53325EDCD6C002A4558 /* ARStatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632AD53225EDCD6C002A4558 /* ARStatisticsInfo.swift */; };
 		632AD54B25EE45E5002A4558 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 632AD54925EE45E5002A4558 /* UIAlertController+Blocks.m */; };
@@ -85,9 +83,7 @@
 		631AE9F425F76016008C500F /* qihong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qihong.wav; sourceTree = "<group>"; };
 		631AE9F525F76016008C500F /* wodema.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wodema.wav; sourceTree = "<group>"; };
 		631AE9F625F76016008C500F /* wuya.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wuya.wav; sourceTree = "<group>"; };
-		631AE9F725F76016008C500F /* 最美的光.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "最美的光.mp3"; sourceTree = "<group>"; };
 		631AE9F825F76016008C500F /* chipmunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chipmunk.wav; sourceTree = "<group>"; };
-		631AE9F925F76016008C500F /* 无名之辈.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "无名之辈.m4a"; sourceTree = "<group>"; };
 		632AD52A25ED23D6002A4558 /* ARCreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCreateRoomViewController.swift; sourceTree = "<group>"; };
 		632AD53225EDCD6C002A4558 /* ARStatisticsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARStatisticsInfo.swift; sourceTree = "<group>"; };
 		632AD54825EE45E4002A4558 /* AudioLive-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioLive-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -164,9 +160,7 @@
 				631AE9F425F76016008C500F /* qihong.wav */,
 				631AE9F525F76016008C500F /* wodema.wav */,
 				631AE9F625F76016008C500F /* wuya.wav */,
-				631AE9F725F76016008C500F /* 最美的光.mp3 */,
 				631AE9F825F76016008C500F /* chipmunk.wav */,
-				631AE9F925F76016008C500F /* 无名之辈.m4a */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -219,8 +213,9 @@
 		636E761425D12F3300581457 /* AudioLive-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6391B934269BE916005124B5 /* Main */,
 				63D294C125F4C225009609A9 /* Audio */,
-				63D294C225F4C232009609A9 /* Mine */,
+				63D294C225F4C232009609A9 /* Settings */,
 				632AD54725EE4593002A4558 /* Common */,
 				635D0D6C25D1344F00056EB5 /* AudioLive-iOS.entitlements */,
 				636E761525D12F3300581457 /* AppDelegate.swift */,
@@ -252,11 +247,18 @@
 			path = "AudioLive-iOSUITests";
 			sourceTree = "<group>";
 		};
-		63D294C125F4C225009609A9 /* Audio */ = {
+		6391B934269BE916005124B5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				635A9CDB25E381A100570FF6 /* ARMainViewController.swift */,
 				632AD52A25ED23D6002A4558 /* ARCreateRoomViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		63D294C125F4C225009609A9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
 				635A9CD325E3817B00570FF6 /* ARAudioViewController.swift */,
 				6319146B25F90A640046BB55 /* ARMusicViewController.swift */,
 				6319147025F9B2660046BB55 /* ARMicViewController.swift */,
@@ -267,7 +269,7 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
-		63D294C225F4C232009609A9 /* Mine */ = {
+		63D294C225F4C232009609A9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				636B800225E63D9E00DCD753 /* ARMineViewController.swift */,
@@ -275,7 +277,7 @@
 				63D294C625F4C2AB009609A9 /* ARModifyViewController.swift */,
 				6392EF8025FE301700791679 /* ARStatementViewController.swift */,
 			);
-			path = Mine;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F234D69506BCB7E840CBFAC6 /* Frameworks */ = {
@@ -396,9 +398,7 @@
 				636E762225D12F3300581457 /* LaunchScreen.storyboard in Resources */,
 				631AE9FA25F76016008C500F /* awkward.wav in Resources */,
 				631AE9FD25F76016008C500F /* wodema.wav in Resources */,
-				631AEA0125F76016008C500F /* 无名之辈.m4a in Resources */,
 				636E761F25D12F3300581457 /* Assets.xcassets in Resources */,
-				631AE9FF25F76016008C500F /* 最美的光.mp3 in Resources */,
 				631AE9D925F744DD008C500F /* Log.storyboard in Resources */,
 				631AE9FE25F76016008C500F /* wuya.wav in Resources */,
 				631AE9FB25F76016008C500F /* guzhang.wav in Resources */,
@@ -642,8 +642,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "AudioLive-iOS/AudioLive-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5543CP4MRT;
 				ENABLE_BITCODE = NO;
@@ -659,10 +659,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ar.audiolive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = audiolive_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioLive-iOS/Common/AudioLive-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -678,8 +678,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "AudioLive-iOS/AudioLive-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5543CP4MRT;
 				ENABLE_BITCODE = NO;
@@ -695,10 +695,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ar.audiolive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = audiolive_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "AudioLive-iOS/Common/AudioLive-iOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
