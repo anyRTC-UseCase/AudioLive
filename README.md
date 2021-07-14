@@ -8,7 +8,7 @@ AudioLive 是anyRTC 所做的语音连麦的示例项目，演示了如何通过
 
 ## 代码下载
 
-Github代码下载慢，请移步至码云下载。
+Github代码下载慢，请移步至[码云](https://gitee.com/anyRTC_admin/AudioLive)下载。
 
 ## 产品架构
 
