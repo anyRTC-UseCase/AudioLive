@@ -8,29 +8,28 @@
 import UIKit
 
 class ARModifyViewController: UIViewController {
-
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var numLabel: UILabel!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var numLabel: UILabel!
     
     var rightButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         // Do any additional setup after loading the view.
         initializeUI()
     }
     
     func initializeUI() {
-        self.navigationItem.leftBarButtonItem = createBarButtonItem(title: "设置昵称")
+        navigationItem.leftBarButtonItem = createBarButtonItem(title: "设置昵称")
         
-        rightButton = UIButton.init(type: .custom)
+        rightButton = UIButton(type: .custom)
         rightButton.setTitle("保存", for: .normal)
         rightButton.titleLabel?.font = UIFont(name: "PingFang SC", size: 18)
         rightButton.setTitleColor(UIColor(hexString: "#40A3FB"), for: .normal)
         rightButton.addTarget(self, action: #selector(saveNickname), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
         let clearButton: UIButton = nameTextField.value(forKey: "_clearButton") as! UIButton
         clearButton.setImage(UIImage(named: "icon_clear"), for: .normal)
@@ -56,21 +55,21 @@ class ARModifyViewController: UIViewController {
         let nickName = nameTextField.text
         if Int(nickName?.count ?? 0) > 0 {
             if nickName != UserDefaults.string(forKey: .userName) {
-                UserDefaults.set(value: nickName! , forKey: .userName)
-                //修改昵称
-                let parameters : NSDictionary = [ "userName": nickName as Any]
-                ARNetWorkHepler.getResponseData("updateUserName", parameters: parameters as? [String : AnyObject], headers: true, success: { [self] (result) in
+                UserDefaults.set(value: nickName!, forKey: .userName)
+                // 修改昵称
+                let parameters: NSDictionary = ["userName": nickName as Any]
+                ARNetWorkHepler.getResponseData("updateUserName", parameters: parameters as? [String: AnyObject], headers: true, success: { [self] _ in
                     NotificationCenter.default.post(name: UIResponder.audioLiveNotificationModifySucess, object: self, userInfo: nil)
                     XHToast.showCenter(withText: "保存成功", duration: 3)
                     popBack()
-                }) { (error) in
+                }) { error in
                     print(error)
                 }
             } else {
                 popBack()
             }
         } else {
-            UIAlertController.showAlert(in: self, withTitle: "提示", message: "昵称不能为空", cancelButtonTitle: "", destructiveButtonTitle: nil, otherButtonTitles: ["确定"]) { (alertVc, action, index) in
+            UIAlertController.showAlert(in: self, withTitle: "提示", message: "昵称不能为空", cancelButtonTitle: "", destructiveButtonTitle: nil, otherButtonTitles: ["确定"]) { _, _, index in
                 print("\(index)")
             }
         }
@@ -78,5 +77,9 @@ class ARModifyViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

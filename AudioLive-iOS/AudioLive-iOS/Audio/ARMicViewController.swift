@@ -5,14 +5,13 @@
 //  Created by 余生丶 on 2021/3/11.
 //
 
-import UIKit
 import ARtmKit
+import UIKit
 
-class ARMicViewController: UIViewController,UIGestureRecognizerDelegate {
-    
-    @IBOutlet weak var micButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var noMicLabel: UILabel!
+class ARMicViewController: UIViewController, UIGestureRecognizerDelegate {
+    @IBOutlet var micButton: UIButton!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var noMicLabel: UILabel!
     let tap = UITapGestureRecognizer()
     var audioVc: ARAudioViewController?
 
@@ -22,7 +21,7 @@ class ARMicViewController: UIViewController,UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         tap.addTarget(self, action: #selector(didClickCloseButton))
         tap.delegate = self
-        self.view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         noMicLabel.isHidden = (audioVc?.micArr.count != 0)
@@ -32,9 +31,8 @@ class ARMicViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBAction func didClickMicButton(_ sender: Any) {
         for userModel: ARUserModel in audioVc!.micArr {
             let dic: NSDictionary! = ["cmd": "acceptLine" as Any]
-            let message: ARtmMessage = ARtmMessage.init(text: getJSONStringFromDictionary(dictionary: dic))
-            rtmEngine.send(message, toPeer: userModel.uid!, sendMessageOptions: ARtmSendMessageOptions()) { (errorCode) in
-                
+            let message = ARtmMessage(text: getJSONStringFromDictionary(dictionary: dic))
+            rtmEngine.send(message, toPeer: userModel.uid!, sendMessageOptions: ARtmSendMessageOptions()) { _ in
             }
             audioVc?.micArr.removeAll()
             tableView.reloadData()
@@ -44,12 +42,12 @@ class ARMicViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     @IBAction func didClickCloseButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if(touch.view == self.view) {
-            self.dismiss(animated: true, completion: nil)
+        if touch.view == view {
+            dismiss(animated: true, completion: nil)
             return true
         } else {
             return false
@@ -60,14 +58,18 @@ class ARMicViewController: UIViewController,UIGestureRecognizerDelegate {
         noMicLabel.isHidden = (audioVc?.micArr.count != 0)
         tableView.reloadData()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
-extension ARMicViewController: UITableViewDelegate,UITableViewDataSource {
+extension ARMicViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ARMicCell = tableView.dequeueReusableCell(withIdentifier: "ARMicCellID") as! ARMicCell
         cell.selectionStyle = .none
         cell.userModel = audioVc?.micArr[indexPath.row]
-        cell.onButtonTapped =  { [weak self] (index) in
+        cell.onButtonTapped = { [weak self] _ in
             self?.audioVc?.micArr.remove(at: indexPath.row)
             self?.tableView.reloadData()
             self?.noMicLabel.isHidden = (self?.audioVc?.micArr.count == 0)

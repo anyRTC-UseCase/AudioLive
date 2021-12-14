@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wqb-iy-0ME">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wqb-iy-0ME">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -20,7 +20,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="EoW-wR-LZP">
-                                <rect key="frame" x="0.0" y="28" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EoW-wR-LZP" id="GnQ-Cd-Dga">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
@@ -100,7 +100,7 @@
         <!--我的-->
         <scene sceneID="fnX-OZ-MIu">
             <objects>
-                <navigationController id="4Xc-Jd-opU" sceneMemberID="viewController">
+                <navigationController id="4Xc-Jd-opU" customClass="ARBaseNavigationController" customModule="AudioLive_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="icon_mine.png" selectedImage="icon_mine_selected.png" id="zHA-J4-gFH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IoH-3d-LWj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -383,7 +383,7 @@
                                 </connections>
                             </collectionView>
                             <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="JQu-TH-KWO">
-                                <rect key="frame" x="165" y="273" width="84.5" height="14"/>
+                                <rect key="frame" x="147" y="273" width="120.5" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="Rg3-7E-z2f"/>
                                 </constraints>
@@ -696,7 +696,7 @@
         <!--连麦-->
         <scene sceneID="fMj-nz-LoA">
             <objects>
-                <navigationController id="elk-rN-B2a" sceneMemberID="viewController">
+                <navigationController id="elk-rN-B2a" customClass="ARBaseNavigationController" customModule="AudioLive_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="连麦" image="icon_audio.png" selectedImage="icon_audio_selected.png" id="faL-d0-wMm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="oTq-o6-Y9X">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -748,7 +748,7 @@
                         <color key="backgroundColor" red="0.96068006750000001" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ARMusicCellID" id="RMd-Rc-2CJ" customClass="ARMusicCell" customModule="AudioLive_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMd-Rc-2CJ" id="Hnd-jr-TLb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
@@ -893,7 +893,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ARMicCellID" rowHeight="65" id="EUg-N7-VG6" customClass="ARMicCell" customModule="AudioLive_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="364" height="65"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="364" height="65"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EUg-N7-VG6" id="6gv-Ya-T7h">
                                                     <rect key="frame" x="0.0" y="0.0" width="364" height="65"/>
