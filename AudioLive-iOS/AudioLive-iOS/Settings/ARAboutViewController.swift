@@ -83,7 +83,7 @@ class ARAboutViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            UIApplication.shared.open(NSURL(string: "https://anyrtc.io/termsOfService")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "https://anyrtc.io/anyrtc/privacy")! as URL, options: [:], completionHandler: nil)
         case 1:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let statementVc = storyboard.instantiateViewController(withIdentifier: reuseIdentifier)

@@ -177,6 +177,7 @@ class ARMainViewController: UICollectionViewController {
                     infoModel.isBroadcaster = true
                 }
                 infoModel.pullRtmpUrl = result["data"]["pullRtmpUrl"].stringValue
+                infoModel.pullFlvUrl = result["data"]["pullFlvUrl"].stringValue
                 infoModel.pushUrl = result["data"]["pushUrl"].stringValue
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

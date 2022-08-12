@@ -177,6 +177,8 @@ class ARAudioViewController: ARBaseViewController {
     }
     
     func leaveChannel() {
+        // 关闭声音检测
+        rtcKit.enableAudioVolumeIndication(0, smooth: 0, report_vad: false);
         // 离开频道
         rtcKit.leaveChannel { _ in
             print("leaveChannel")
@@ -207,7 +209,7 @@ class ARAudioViewController: ARBaseViewController {
     // ------------ 播放器 -- 游客 ------------------
     func initializeMediaPlayer() {
         mediaPlayer = ARMediaPlayer(delegate: self)
-        mediaPlayer?.open((infoModel?.pullRtmpUrl)!, startPos: 0)
+        mediaPlayer?.open((infoModel?.pullFlvUrl)!, startPos: 0)
         mediaPlayer?.play()
     }
     

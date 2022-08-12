@@ -22,16 +22,9 @@ class ARMusicViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         // Do any additional setup after loading the view.
-        let leftButton = UIButton(type: .custom)
-        leftButton.frame = CGRect(x: 0, y: 0, width: 100, height: 17)
-        leftButton.setTitle("音乐列表", for: .normal)
-        leftButton.titleLabel?.font = UIFont(name: "PingFang SC", size: 17)
-        leftButton.setTitleColor(RGBA(r: 96, g: 96, b: 96, a: 1), for: .normal)
-        leftButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        leftButton.setImage(UIImage(named: "icon_return"), for: .normal)
-        leftButton.addTarget(self, action: #selector(popBack), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        navigationItem.leftBarButtonItem = createBarButtonItem(title: "音乐列表")
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(hexString: "#F5F5F5")
         createPlaceholder()
@@ -105,7 +98,7 @@ class ARMusicViewController: UITableViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        return .lightContent
     }
     
     // MARK: - Table view data source
