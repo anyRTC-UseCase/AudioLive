@@ -162,6 +162,18 @@ extension NSObject {
         return attStr
     }
     
+    //颜色生成图片
+    func createImage(_ color: UIColor)-> UIImage{
+        let rect = CGRect.init(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     //是否为空
     func isBlank(text: String?) -> Bool {
         if text == nil {

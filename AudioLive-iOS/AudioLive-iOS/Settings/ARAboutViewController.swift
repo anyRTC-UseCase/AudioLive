@@ -15,7 +15,7 @@ class ARAboutViewController: UITableViewController {
     var menus: [MenuItem] = [
         MenuItem(name: "隐私条例", icon: "icon_lock"),
         MenuItem(name: "免责声明", icon: "icon_log"),
-        MenuItem(name: "注册anyRTC账号", icon: "icon_register"),
+        MenuItem(name: "anyRTC官网", icon: "icon_register"),
         MenuItem(name: "发版时间", icon: "icon_time", detail: "2021.07.12"),
         MenuItem(name: "SDK版本", icon: "icon_sdkversion", detail: String(format: "V %@", ARtcEngineKit.getSdkVersion())),
         MenuItem(name: "软件版本", icon: "icon_appversion", detail: String(format: "V %@", Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! CVarArg))
@@ -90,7 +90,7 @@ class ARAboutViewController: UITableViewController {
             statementVc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(statementVc, animated: true)
         case 2:
-            UIApplication.shared.open(NSURL(string: "https://console.anyrtc.io/signup")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "https://www.anyrtc.io")! as URL, options: [:], completionHandler: nil)
         default:
             break
         }

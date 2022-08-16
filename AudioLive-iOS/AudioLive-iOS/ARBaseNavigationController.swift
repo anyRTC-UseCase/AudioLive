@@ -8,31 +8,13 @@
 import UIKit
 
 class ARBaseNavigationController: UINavigationController {
-    
-    var navigationBarColor: UIColor? {
-        didSet {
-            if #available(iOS 15.0, *) {
-                let appearance = UINavigationBarAppearance()
-                appearance.configureWithOpaqueBackground()
-                appearance.backgroundColor = navigationBarColor
-                
-                var textAttributes: [NSAttributedString.Key: AnyObject] = [:]
-                textAttributes[.foregroundColor] = UIColor.white
-                appearance.titleTextAttributes = textAttributes
-                
-                navigationBar.standardAppearance = appearance
-                navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationBarColor = UIColor(hexString: "#121F2B")
+        navgationBarColor = UIColor(hexString: "#121F2B")
+        titleColor = UIColor.white
     }
     
     override var childForStatusBarStyle: UIViewController? {
@@ -50,3 +32,65 @@ class ARBaseNavigationController: UINavigationController {
     */
 
 }
+
+
+public extension UINavigationController {
+    private enum AssociatedKey {
+        static var navgationBarColor = UIColor.white
+        static var titleColor = UIColor.black
+    }
+    
+    var navgationBarColor: UIColor {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.navgationBarColor) as? UIColor ?? UIColor.white
+        }
+        
+        set {
+            if #available(iOS 15.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithDefaultBackground()
+                appearance.shadowColor = nil
+                appearance.backgroundEffect = nil
+                appearance.backgroundColor = newValue
+
+                var textAttributes: [NSAttributedString.Key: AnyObject] = [:]
+                textAttributes[.foregroundColor] = titleColor
+                appearance.titleTextAttributes = textAttributes
+
+                navigationBar.standardAppearance = appearance
+                navigationBar.scrollEdgeAppearance = appearance
+            } else {
+                // Fallback on earlier versions
+                navigationBar.setBackgroundImage(createImage(newValue), for: .any, barMetrics: .default)
+            }
+            
+            objc_setAssociatedObject(self, &AssociatedKey.navgationBarColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+    }
+    
+    var titleColor: UIColor {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.titleColor) as? UIColor ?? UIColor.black
+        }
+        
+        set {
+            if #available(iOS 15.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundColor = navgationBarColor
+                
+                var textAttributes: [NSAttributedString.Key: AnyObject] = [:]
+                textAttributes[.foregroundColor] = newValue
+                appearance.titleTextAttributes = textAttributes
+                
+                navigationBar.standardAppearance = appearance
+                navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+            } else {
+                // Fallback on earlier versions
+                navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: newValue]
+            }
+            objc_setAssociatedObject(self, &AssociatedKey.titleColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+    }
+}
+
