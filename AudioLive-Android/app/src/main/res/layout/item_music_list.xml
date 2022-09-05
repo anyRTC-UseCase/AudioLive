@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/music_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无名之辈"
+        android:textColor="@color/apply_text_color"
+        android:textSize="@dimen/sp_15"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dp_18"/>
+
+    <ImageView
+        android:id="@+id/music_stop"
+        android:visibility="gone"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/music_play"
+        android:layout_marginEnd="@dimen/dp_27"
+        android:background="@drawable/stoping">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/music_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:src="@drawable/playing">
+    </ImageView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/gray_line"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

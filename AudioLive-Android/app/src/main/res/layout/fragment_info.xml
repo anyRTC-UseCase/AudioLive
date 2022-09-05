@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_155"
+        android:background="@drawable/info_bg">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/my_avatar"
+            android:layout_width="@dimen/dp_65"
+            android:layout_height="@dimen/dp_65"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:src="@drawable/avatar"/>
+
+        <TextView
+            android:id="@+id/info_name"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iPhone-1234566"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/my_avatar"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_54">
+
+        <ImageView
+            android:id="@+id/set_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/name"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置昵称"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_14"
+            android:layout_toRightOf="@+id/set_name"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iPhone-1234566"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/dp_14"
+            android:layout_toLeftOf="@+id/arrows_name"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/arrows_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrows_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_bg"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_about"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_47">
+
+        <ImageView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/about"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关于"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_14"
+            android:layout_toRightOf="@+id/about"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"/>
+
+        <ImageView
+            android:id="@+id/arrows_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrows_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_14"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_bg"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

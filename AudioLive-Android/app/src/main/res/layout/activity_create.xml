@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title"/>
+
+    <EditText
+        android:id="@+id/et_create_chat"
+        android:layout_marginTop="@dimen/dp_58"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_19"
+        android:hint="主题"
+        android:maxLength="10"
+        android:textCursorDrawable="@drawable/shape_cursor_bg"
+        android:textColorHint="@color/et_create_hint"
+        android:paddingLeft="@dimen/dp_5"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_et_create_bg"/>
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_marginTop="@dimen/dp_34"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:text="创建房间"
+        android:textColor="@drawable/selector_create_text_color"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_19"
+        android:background="@drawable/selector_btn_create"/>
+
+</LinearLayout>
