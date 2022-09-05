@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="音量"
+            android:text="音量音效设置"
             android:layout_centerInParent="true"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_15"
@@ -37,9 +37,44 @@
         android:layout_height="@dimen/dp_60">
 
         <ImageView
+            android:id="@+id/effect_icon"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:src="@drawable/selector_sound_effect"/>
+
+        <TextView
+            android:id="@+id/effect_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:layout_toEndOf="@+id/effect_icon"
+            android:layout_centerVertical="true"
+            android:text="音效"
+            android:layout_marginStart="@dimen/dp_44"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/effect_btn"
+            android:layout_width="@dimen/dp_54"
+            android:layout_height="@dimen/dp_28"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:src="@drawable/selector_sound_effect_switch"
+            android:layout_marginEnd="@dimen/dp_35"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_60">
+
+        <ImageView
             android:id="@+id/music_icon"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
             android:layout_marginLeft="@dimen/dp_32"
             android:layout_centerVertical="true"
             android:src="@drawable/music_open"/>
@@ -76,9 +111,9 @@
 
         <ImageView
             android:id="@+id/volume_icon"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
-            android:layout_marginLeft="@dimen/dp_32"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_marginStart="@dimen/dp_32"
             android:layout_centerVertical="true"
             android:src="@drawable/volume_open"/>
 
@@ -87,9 +122,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_14"
-            android:layout_toRightOf="@+id/volume_icon"
+            android:layout_toEndOf="@+id/volume_icon"
             android:text="人声"
-            android:layout_marginLeft="@dimen/dp_44"
+            android:layout_marginStart="@dimen/dp_44"
             android:textColor="@color/white"/>
 
         <SeekBar
@@ -115,8 +150,8 @@
 
         <ImageView
             android:id="@+id/ear_icon"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
             android:layout_marginLeft="@dimen/dp_32"
             android:layout_centerVertical="true"
             android:src="@drawable/ear_close"/>

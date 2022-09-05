@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "AR_AudioMic"
+rootProject.name = "AudioLive"

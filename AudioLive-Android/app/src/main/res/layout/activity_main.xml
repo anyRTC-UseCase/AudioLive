@@ -18,7 +18,7 @@
         android:layout_gravity="bottom"
         android:orientation="horizontal">
 
-        <org.ar.ar_audiomic.view.TabView
+        <org.ar.audiolive.view.TabView
             android:id="@+id/conn_mic"
             app:tabImage="@drawable/mic_unfocus"
             app:tabSelectedImage="@drawable/mic_focus"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <org.ar.ar_audiomic.view.TabView
+        <org.ar.audiolive.view.TabView
             android:id="@+id/info"
             app:tabImage="@drawable/info_unfocus"
             app:tabSelectedImage="@drawable/info_focus"

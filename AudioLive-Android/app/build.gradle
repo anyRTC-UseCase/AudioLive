@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "org.ar.ar_audiomic"
+        applicationId "org.ar.audiolive"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
@@ -28,12 +28,18 @@ android {
         debug {
             minifyEnabled false  // 代码混淆
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [RELEASE_TIME:releaseTime()]
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [RELEASE_TIME:releaseTime()]
         }
     }
+}
+
+def releaseTime() {
+    return new Date().format("yyyy.MM.dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {
@@ -50,6 +56,7 @@ dependencies {
     implementation 'com.kongzue.dialog_v3x:dialog:3.2.1'
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
     //rtm
     implementation 'org.ar:rtm:1.0.1.7'
     //rtc

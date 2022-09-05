@@ -58,4 +58,14 @@
     <color name="null_text_color">#9FA3B6</color>
 
     <color name="launch_color">#5247F9</color>
+
+    <color name="effect_hhh_color">#FFCE5850</color>
+    <color name="effect_qihong_color">#FFF29025</color>
+    <color name="effect_guzhang_color">#FF8252F6</color>
+    <color name="effect_ganga_color">#FF6AB71C</color>
+    <color name="effect_wuya_color">#FF03A3C3</color>
+    <color name="effect_mymom_color">#FF0A6BBE</color>
+
+    <color name="room_color">#FFF5F5F5</color>
+    <color name="gray_line">#FFE9E9E9</color>
 </resources>

@@ -33,9 +33,9 @@
             android:id="@+id/chat_join_mic"
             android:layout_width="@dimen/dp_63"
             android:layout_height="@dimen/dp_37"
-            android:layout_marginLeft="@dimen/dp_10"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/up_mic"/>
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@drawable/up_mic" />
 
         <ImageView
             android:id="@+id/chat_mic"
@@ -56,6 +56,19 @@
             android:layout_marginRight="@dimen/dp_11"
             android:layout_gravity="center_vertical"
             android:src="@drawable/speaker_open"/>
+
+        <TextView
+            android:id="@+id/chat_apply_count"
+            android:layout_width="@dimen/dp_37"
+            android:layout_height="@dimen/dp_37"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_11"
+            android:layout_gravity="center_vertical"
+            android:text="0"
+            android:textSize="@dimen/sp_23"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/shape_circle_transparency_bg"/>
 
         <ImageView
             android:id="@+id/chat_volume"
