@@ -24,7 +24,16 @@ class ARMusicViewController: UITableViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = createBarButtonItem(title: "音乐列表")
+        let leftButton = UIButton.init(type: .custom)
+        leftButton.setTitle(title, for: .normal)
+        leftButton.setImage(UIImage(named: "icon_return"), for: .normal)
+        leftButton.titleLabel?.font = UIFont(name: "PingFang SC", size: 18)
+        leftButton.setTitle("音乐列表", for: .normal)
+        leftButton.setTitleColor(UIColor.black, for: .normal)
+        leftButton.layoutButtonWithEdgeInsetsStyle(style: .Left, space: 10)
+        leftButton.addTarget(self, action: #selector(popBack), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(hexString: "#F5F5F5")
         createPlaceholder()
@@ -85,7 +94,8 @@ class ARMusicViewController: UITableViewController {
         super.viewWillAppear(animated)
         if navigationController is ARBaseNavigationController {
             let nav = navigationController as! ARBaseNavigationController
-            nav.navigationBarColor = UIColor.white
+            nav.navgationBarColor = UIColor.white
+            nav.titleColor = UIColor.black
         }
     }
     
@@ -93,12 +103,13 @@ class ARMusicViewController: UITableViewController {
         super.viewDidDisappear(animated)
         if navigationController is ARBaseNavigationController {
             let nav = navigationController as! ARBaseNavigationController
-            nav.navigationBarColor = UIColor(hexString: "#121F2B")
+            nav.navgationBarColor = UIColor(hexString: "#121F2B")
+            nav.titleColor = UIColor.white
         }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
     // MARK: - Table view data source
